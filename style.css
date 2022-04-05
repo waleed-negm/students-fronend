@@ -1,0 +1,312 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: #ccc;
+    color: #272727;
+    margin: 0;
+    padding: 0px 25px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-center;
+    align-items: center;
+    align-content: center;
+}
+* {
+    box-sizing: border-box;
+}
+/* Add padding to containers */
+.container {
+    padding: 16px;
+    background-color: white;
+    border-radius: 25px;
+}
+/* Full-width input fields */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 15px;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+select:focus {
+    background-color: #ddd;
+    outline: transparent;
+}
+.search {
+    width: 130px !important;
+    -webkit-transition: width 0.4s ease-in-out !important;
+    transition: width 0.4s ease-in-out !important;
+    margin: unset !important;
+    margin-left: auto !important;
+}
+/* When the input field gets focus, change its width to 100% */
+.search:focus {
+    width: 100% !important;
+}
+/* Overwrite default styles of hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+/* Set a style for the submit button */
+.registerbtn {
+    background-color: #04aa6d;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 15px;
+}
+.registerbtn:hover {
+    opacity: 1;
+}
+/* Add a blue text color to links */
+a {
+    color: dodgerblue;
+}
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+/* snack bar*/
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+/* snack bar*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td,
+th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+table tr:nth-child(odd) {
+    background-color: #8fd1b93a;
+}
+table tr:hover {
+    background-color: #81c0aa;
+}
+tr:hover td {
+    color: white;
+}
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #038857;
+    color: white;
+}
+tr {
+    text-align: center;
+}
+/* Extra */
+.logo {
+    max-width: 200px;
+}
+.navbar {
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: row;
+    font-family: sans-serif;
+    padding: 5px 15px;
+    width: 100%;
+    margin: 1rem;
+    border-radius: 25px;
+}
+/* Menu */
+.hamburger {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+    outline: none;
+    height: 30px;
+    position: relative;
+    width: 30px;
+    z-index: 1000;
+}
+.hamburger-line {
+    background: #272727;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    transition: all 0.2s ease-out;
+    width: 100%;
+}
+.hamburger:hover .hamburger-line {
+    background: #777;
+}
+.hamburger-line-top {
+    top: 3px;
+}
+.menu-active .hamburger-line-top {
+    top: 50%;
+    transform: rotate(45deg) translatey(-50%);
+}
+.hamburger-line-middle {
+    top: 50%;
+    transform: translatey(-50%);
+}
+.menu-active .hamburger-line-middle {
+    left: 50%;
+    opacity: 0;
+    width: 0;
+}
+.hamburger-line-bottom {
+    bottom: 3px;
+}
+.menu-active .hamburger-line-bottom {
+    bottom: 50%;
+    transform: rotate(-45deg) translatey(50%);
+}
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.25s ease-in;
+}
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        background: #fff;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translatey(-100%);
+        text-align: center;
+    }
+    .menu-active .nav-menu {
+        transform: translatey(0%);
+        opacity: 1;
+    }
+    .nav-menu .menu-item a {
+        font-size: 20px;
+        margin: 8px;
+    }
+    .sub-nav {
+        position: relative;
+        width: 100%;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+    }
+    .hamburger {
+        display: inline-block;
+    }
+    .logo {
+        display: none;
+    }
+    .search {
+        margin-right: 10px !important;
+    }
+}
+.nav-menu .menu-item a {
+    color: #444444;
+    display: block;
+    line-height: 30px;
+    margin: 0px 10px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.nav-menu .menu-item a:hover {
+    color: #777777;
+    text-decoration: underline;
+}
+.sub-nav {
+    border: 1px solid #ccc;
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 5px 5px;
+    list-style: none;
+    width: 230px;
+}
+.nav__link:hover + .sub-nav {
+    display: block;
+}
+.sub-nav:hover {
+    display: block;
+}
